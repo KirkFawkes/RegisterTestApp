@@ -30,8 +30,14 @@ class EditingTableViewCell: UITableViewCell {
 		}
 	}
 	
-	// MARK: - Helpers
+	var model: TableCellModel? {
+		didSet {
+			// TODO: update cell with this model
+			print(model)
+		}
+	}
 	
+	// MARK: - Helpers
 	private func updateBorders() {
 		self.removeBorders(name: Border.name)
 		

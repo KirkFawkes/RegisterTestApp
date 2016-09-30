@@ -45,7 +45,7 @@
                                     <constraint firstAttribute="height" constant="203" id="FjV-wq-nAd"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="ZkD-WF-Z9l" kind="embed" id="qKO-q7-htN"/>
+                                    <segue destination="ZkD-WF-Z9l" kind="embed" identifier="EditibleTableId" id="qKO-q7-htN"/>
                                 </connections>
                             </containerView>
                         </subviews>

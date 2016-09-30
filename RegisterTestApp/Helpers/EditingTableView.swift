@@ -6,8 +6,15 @@
 import UIKit
 
 class EditingTableView: UITableViewController {
+	var cellModels = [TableCellModel]() {
+		didSet {
+			self.tableView.reloadData()
+		}
+	}
+
+	// MARK: - Data source
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 2
+		return cellModels.count
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -15,12 +22,12 @@ class EditingTableView: UITableViewController {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "textCellId", for: indexPath) as! EditingTableViewCell
 		cell.isLast = (indexPath.row == rows - 1)
+		cell.model = cellModels[indexPath.row]
 		
 		return cell
 	}
 
 	// MARK: - delegate
-
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		print("Selected row %@", indexPath)
 	}
