@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		323C14A6BEF9735D85DCA7E8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323C13FFE693A94EA7846DE5 /* UIColor.swift */; };
+		323C1B0E8E5BCBC280463B34 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323C12C7698A7A2860F41206 /* UIView.swift */; };
 		4A3E95811D9D53A4001C8D64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3E95801D9D53A4001C8D64 /* AppDelegate.swift */; };
 		4A3E95861D9D53A4001C8D64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A3E95841D9D53A4001C8D64 /* Main.storyboard */; };
 		4A3E95881D9D53A4001C8D64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A3E95871D9D53A4001C8D64 /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		323C12C7698A7A2860F41206 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		323C13FFE693A94EA7846DE5 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		323C1ED2605B11F0A05EBC81 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		4A3E957D1D9D53A4001C8D64 /* RegisterTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RegisterTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3E95801D9D53A4001C8D64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +54,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		323C16D336E18904774B755D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				323C12C7698A7A2860F41206 /* UIView.swift */,
+				323C13FFE693A94EA7846DE5 /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		323C1DC8B8DA7482B5523600 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				4AE4E7271D9E4DC5001C6081 /* Fonts */,
+				323C16D336E18904774B755D /* Extensions */,
 				323C1DC8B8DA7482B5523600 /* Screens */,
 				4A3E95801D9D53A4001C8D64 /* AppDelegate.swift */,
 				4A3E95841D9D53A4001C8D64 /* Main.storyboard */,
@@ -185,6 +199,8 @@
 			files = (
 				4A3E95811D9D53A4001C8D64 /* AppDelegate.swift in Sources */,
 				4AE4E7261D9E4AF7001C6081 /* RegisterViewController.swift in Sources */,
+				323C1B0E8E5BCBC280463B34 /* UIView.swift in Sources */,
+				323C14A6BEF9735D85DCA7E8 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
