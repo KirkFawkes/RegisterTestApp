@@ -16,6 +16,7 @@
 		4A3E958B1D9D53A4001C8D64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A3E95891D9D53A4001C8D64 /* LaunchScreen.storyboard */; };
 		4A706F0D1D9E6D1D006BA99A /* EditingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A706F0C1D9E6D1D006BA99A /* EditingTableViewCell.swift */; };
 		4A706F101D9E8B10006BA99A /* TableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A706F0F1D9E8B10006BA99A /* TableCellModel.swift */; };
+		4A706F161D9F1847006BA99A /* ControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A706F151D9F1847006BA99A /* ControlButton.swift */; };
 		4AE4E7261D9E4AF7001C6081 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323C1ED2605B11F0A05EBC81 /* RegisterViewController.swift */; };
 		4AE4E72F1D9E4FAE001C6081 /* SFUIDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4E7281D9E4DE2001C6081 /* SFUIDisplay-Regular.otf */; };
 		4AE4E7301D9E4FAE001C6081 /* SFUIDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4E7291D9E4DE2001C6081 /* SFUIDisplay-Semibold.otf */; };
@@ -40,6 +41,7 @@
 		4A3E95921D9D556D001C8D64 /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
 		4A706F0C1D9E6D1D006BA99A /* EditingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditingTableViewCell.swift; path = ../../Helpers/EditingTableViewCell.swift; sourceTree = "<group>"; };
 		4A706F0F1D9E8B10006BA99A /* TableCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellModel.swift; sourceTree = "<group>"; };
+		4A706F151D9F1847006BA99A /* ControlButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlButton.swift; sourceTree = "<group>"; };
 		4AE4E7281D9E4DE2001C6081 /* SFUIDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Regular.otf"; sourceTree = "<group>"; };
 		4AE4E7291D9E4DE2001C6081 /* SFUIDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Semibold.otf"; sourceTree = "<group>"; };
 		4AE4E72A1D9E4DE2001C6081 /* SFUIDisplay-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Thin.otf"; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				4A706F121D9E929E006BA99A /* EditingTable */,
+				4A706F151D9F1847006BA99A /* ControlButton.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A706F161D9F1847006BA99A /* ControlButton.swift in Sources */,
 				4A706F0D1D9E6D1D006BA99A /* EditingTableViewCell.swift in Sources */,
 				4A706F101D9E8B10006BA99A /* TableCellModel.swift in Sources */,
 				4A3E95811D9D53A4001C8D64 /* AppDelegate.swift in Sources */,

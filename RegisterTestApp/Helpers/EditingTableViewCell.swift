@@ -97,8 +97,6 @@ class EditingTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-		self.textField.backgroundColor = selected ? UIColor.red : UIColor.white
 		
 		// NOTE: since we showing/hiding keyboard in this method (basically, cell is controling keyboard showing - not table/collection view)
 		//       and this method called with "selected = false" for old cell and then "selected = true" for new cell, we can't just use

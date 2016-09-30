@@ -10,6 +10,7 @@ import UIKit
 
 class RegisterViewController: UIViewController {
 	@IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
+	@IBOutlet weak var loginButton: ControlButton!
 	
 	let cellItems = [
 		TableCellModel(title: NSLocalizedString("Email", comment: "Email title"), icon: "icon-email", keyboard: .emailAddress),
