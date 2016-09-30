@@ -6,6 +6,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFUIText-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="oPf-TN-nnJ">
@@ -32,7 +37,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="register" translatesAutoresizingMaskIntoConstraints="NO" id="JbH-Qn-W3Y">
@@ -42,7 +47,7 @@
                             </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcy-3P-IKh">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="203" id="FjV-wq-nAd"/>
+                                    <constraint firstAttribute="height" constant="100" id="FjV-wq-nAd"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="ZkD-WF-Z9l" kind="embed" identifier="EditibleTableId" id="qKO-q7-htN"/>
@@ -51,7 +56,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qcy-3P-IKh" firstAttribute="top" secondItem="JbH-Qn-W3Y" secondAttribute="bottom" constant="193" id="9ZT-0a-92U"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qcy-3P-IKh" secondAttribute="bottom" constant="162" id="8Q7-CZ-fvW"/>
                             <constraint firstItem="JbH-Qn-W3Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="PEB-ny-GVx"/>
                             <constraint firstAttribute="trailing" secondItem="qcy-3P-IKh" secondAttribute="trailing" id="S5z-Ss-R3c"/>
                             <constraint firstItem="qcy-3P-IKh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Xno-K4-aO4"/>
@@ -61,6 +66,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BXR-16-FWQ"/>
+                    <connections>
+                        <outlet property="tableViewBottomConstraint" destination="8Q7-CZ-fvW" id="RM3-sN-SUz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,20 +78,45 @@
         <scene sceneID="nCf-fu-vUl">
             <objects>
                 <tableViewController id="ZkD-WF-Z9l" customClass="EditingTableViewController" customModule="RegisterTestApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="47" sectionHeaderHeight="28" sectionFooterHeight="28" id="BFg-GH-8Fe">
-                        <rect key="frame" x="0.0" y="0.0" width="411" height="100"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="47" sectionHeaderHeight="28" sectionFooterHeight="28" id="BFg-GH-8Fe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="textCellId" rowHeight="46" id="Q7q-fu-jPN" customClass="EditingTableViewCell" customModule="RegisterTestApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="411" height="46"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="textCellId" rowHeight="47" id="Q7q-fu-jPN" customClass="EditingTableViewCell" customModule="RegisterTestApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="47"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q7q-fu-jPN" id="yzd-Br-UAN">
-                                    <frame key="frameInset" width="411" height="46"/>
+                                    <frame key="frameInset" width="320" height="47"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vp7-oU-TaH">
+                                            <frame key="frameInset" minX="14" minY="12" width="22" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Test" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4b0-hs-KBO">
+                                            <frame key="frameInset" minX="146" minY="9" width="166" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI  Text" pointSize="12"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                        </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OB7-c7-2pn">
+                                            <frame key="frameInset" minX="66" minY="12" width="72" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI  Text" pointSize="12"/>
+                                            <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="iconImageView" destination="Vp7-oU-TaH" id="mPZ-1q-jTk"/>
+                                    <outlet property="textField" destination="4b0-hs-KBO" id="Bu0-PX-8Ub"/>
+                                    <outlet property="titleLabel" destination="OB7-c7-2pn" id="08j-pu-xGK"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -96,11 +129,11 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="411" height="100"/>
+                    <size key="freeformSize" width="320" height="100"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HD6-7K-s7L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1592.8125" y="-289.43661971830988"/>
+            <point key="canvasLocation" x="1591.875" y="-289.43661971830988"/>
         </scene>
     </scenes>
     <resources>
