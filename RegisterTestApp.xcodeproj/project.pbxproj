@@ -12,6 +12,13 @@
 		4A3E95861D9D53A4001C8D64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A3E95841D9D53A4001C8D64 /* Main.storyboard */; };
 		4A3E95881D9D53A4001C8D64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A3E95871D9D53A4001C8D64 /* Assets.xcassets */; };
 		4A3E958B1D9D53A4001C8D64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A3E95891D9D53A4001C8D64 /* LaunchScreen.storyboard */; };
+		4AE4E72F1D9E4FAE001C6081 /* SFUIDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4E7281D9E4DE2001C6081 /* SFUIDisplay-Regular.otf */; };
+		4AE4E7301D9E4FAE001C6081 /* SFUIDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4E7291D9E4DE2001C6081 /* SFUIDisplay-Semibold.otf */; };
+		4AE4E7311D9E4FAE001C6081 /* SFUIDisplay-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4E72A1D9E4DE2001C6081 /* SFUIDisplay-Thin.otf */; };
+		4AE4E7321D9E4FAE001C6081 /* SFUIText-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4E72B1D9E4DE2001C6081 /* SFUIText-Light.otf */; };
+		4AE4E7331D9E4FAE001C6081 /* SFUIText-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4E72C1D9E4DE2001C6081 /* SFUIText-Medium.otf */; };
+		4AE4E7341D9E4FAE001C6081 /* SFUIText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4E72D1D9E4DE2001C6081 /* SFUIText-Regular.otf */; };
+		4AE4E7351D9E4FAE001C6081 /* SFUIText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4E72E1D9E4DE2001C6081 /* SFUIText-Semibold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +30,13 @@
 		4A3E958A1D9D53A4001C8D64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A3E958C1D9D53A4001C8D64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A3E95921D9D556D001C8D64 /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
+		4AE4E7281D9E4DE2001C6081 /* SFUIDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Regular.otf"; sourceTree = "<group>"; };
+		4AE4E7291D9E4DE2001C6081 /* SFUIDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Semibold.otf"; sourceTree = "<group>"; };
+		4AE4E72A1D9E4DE2001C6081 /* SFUIDisplay-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Thin.otf"; sourceTree = "<group>"; };
+		4AE4E72B1D9E4DE2001C6081 /* SFUIText-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Light.otf"; sourceTree = "<group>"; };
+		4AE4E72C1D9E4DE2001C6081 /* SFUIText-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Medium.otf"; sourceTree = "<group>"; };
+		4AE4E72D1D9E4DE2001C6081 /* SFUIText-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Regular.otf"; sourceTree = "<group>"; };
+		4AE4E72E1D9E4DE2001C6081 /* SFUIText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Semibold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +70,7 @@
 		4A3E957F1D9D53A4001C8D64 /* RegisterTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				4AE4E7271D9E4DC5001C6081 /* Fonts */,
 				4A3E95801D9D53A4001C8D64 /* AppDelegate.swift */,
 				4A3E95821D9D53A4001C8D64 /* ViewController.swift */,
 				4A3E95841D9D53A4001C8D64 /* Main.storyboard */,
@@ -64,6 +79,20 @@
 				4A3E958C1D9D53A4001C8D64 /* Info.plist */,
 			);
 			path = RegisterTestApp;
+			sourceTree = "<group>";
+		};
+		4AE4E7271D9E4DC5001C6081 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4AE4E7281D9E4DE2001C6081 /* SFUIDisplay-Regular.otf */,
+				4AE4E7291D9E4DE2001C6081 /* SFUIDisplay-Semibold.otf */,
+				4AE4E72A1D9E4DE2001C6081 /* SFUIDisplay-Thin.otf */,
+				4AE4E72B1D9E4DE2001C6081 /* SFUIText-Light.otf */,
+				4AE4E72C1D9E4DE2001C6081 /* SFUIText-Medium.otf */,
+				4AE4E72D1D9E4DE2001C6081 /* SFUIText-Regular.otf */,
+				4AE4E72E1D9E4DE2001C6081 /* SFUIText-Semibold.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +155,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AE4E72F1D9E4FAE001C6081 /* SFUIDisplay-Regular.otf in Resources */,
+				4AE4E7301D9E4FAE001C6081 /* SFUIDisplay-Semibold.otf in Resources */,
+				4AE4E7311D9E4FAE001C6081 /* SFUIDisplay-Thin.otf in Resources */,
+				4AE4E7321D9E4FAE001C6081 /* SFUIText-Light.otf in Resources */,
+				4AE4E7331D9E4FAE001C6081 /* SFUIText-Medium.otf in Resources */,
+				4AE4E7341D9E4FAE001C6081 /* SFUIText-Regular.otf in Resources */,
+				4AE4E7351D9E4FAE001C6081 /* SFUIText-Semibold.otf in Resources */,
 				4A3E958B1D9D53A4001C8D64 /* LaunchScreen.storyboard in Resources */,
 				4A3E95881D9D53A4001C8D64 /* Assets.xcassets in Resources */,
 				4A3E95861D9D53A4001C8D64 /* Main.storyboard in Resources */,
@@ -300,6 +336,7 @@
 				4A3E95911D9D53A4001C8D64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

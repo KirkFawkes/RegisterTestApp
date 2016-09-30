@@ -32,5 +32,15 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SFUIDisplay-Regular.otf</string>
+		<string>SFUIDisplay-Semibold.otf</string>
+		<string>SFUIDisplay-Thin.otf</string>
+		<string>SFUIText-Light.otf</string>
+		<string>SFUIText-Medium.otf</string>
+		<string>SFUIText-Regular.otf</string>
+		<string>SFUIText-Semibold.otf</string>
+	</array>
 </dict>
 </plist>
