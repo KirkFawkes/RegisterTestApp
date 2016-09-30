@@ -15,11 +15,7 @@ extension UIView {
 	}
 	
 	func removeBorders(name: String) {
-		layer.sublayers?.filter { (el) -> Bool in
-			return el.name == name
-		} .forEach{ (el) in
-			el.removeFromSuperlayer()
-		}
+		layer.sublayers?.filter { $0.name == name } .forEach { $0.removeFromSuperlayer() }
 	}
 	
 	private func addBorder(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, color: UIColor, name: String?) {
