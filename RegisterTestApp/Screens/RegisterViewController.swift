@@ -9,7 +9,8 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
-	@IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
+	@IBOutlet weak var loginButtonBottomConstraint: NSLayoutConstraint!
+	
 	@IBOutlet weak var loginButton: ControlButton!
 	
 	let cellItems = [
@@ -37,14 +38,16 @@ class RegisterViewController: UIViewController {
 	
 	// MARK: - Keyboard
 	func keyboardWillShow(notification: Notification) {
-//		let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+		let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+		let height = keyboardFrame!.size.height
+		
 		let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double
-		self.updateView(keyboardVisible: true, animationDuration: duration)
+		self.updateView(keyboardVisible: true, keyboardHeight: height, animationDuration: duration)
 	}
 	
 	func keyboardWillHide(notification: Notification) {
 		let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double
-		self.updateView(keyboardVisible: false, animationDuration: duration)
+		self.updateView(keyboardVisible: false, keyboardHeight: 0, animationDuration: duration)
 	}
 	
 	// MARK: -
@@ -56,13 +59,13 @@ class RegisterViewController: UIViewController {
 	}
 	
 	// MARK: - Helpers
-	private func updateView(keyboardVisible: Bool, animationDuration duration: Double?) {
-		let tableBottomConstraint: CGFloat = 162
+	private func updateView(keyboardVisible: Bool, keyboardHeight: CGFloat, animationDuration duration: Double?) {
+		let loginButtonConstraint: CGFloat = 16
 		
 		if (keyboardVisible) {
-			tableViewBottomConstraint.constant = tableBottomConstraint + 120
+			loginButtonBottomConstraint.constant = loginButtonConstraint + keyboardHeight
 		} else {
-			tableViewBottomConstraint.constant = tableBottomConstraint
+			loginButtonBottomConstraint.constant = loginButtonConstraint
 		}
 		
 		let animationBlock: () -> Void = { [unowned self] in
