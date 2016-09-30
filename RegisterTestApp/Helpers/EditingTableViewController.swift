@@ -2,10 +2,9 @@
 // Created by Igor Zubko on 30.09.16.
 // Copyright (c) 2016 Igor Zubko. All rights reserved.
 //
-
 import UIKit
 
-class EditingTableView: UITableViewController {
+class EditingTableViewController: UITableViewController {
 	var cellModels = [TableCellModel]() {
 		didSet {
 			self.tableView.reloadData()

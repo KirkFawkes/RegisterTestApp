@@ -11,7 +11,7 @@
         <scene sceneID="oPf-TN-nnJ">
             <objects>
                 <navigationController navigationBarHidden="YES" id="c2O-PJ-pi5" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="aiE-1p-NUR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aiE-1p-NUR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="603.75" y="130.98591549295776"/>
         </scene>
-        <!--Editing Table View-->
+        <!--Editing Table View Controller-->
         <scene sceneID="nCf-fu-vUl">
             <objects>
-                <tableViewController id="ZkD-WF-Z9l" customClass="EditingTableView" customModule="RegisterTestApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ZkD-WF-Z9l" customClass="EditingTableViewController" customModule="RegisterTestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="47" sectionHeaderHeight="28" sectionFooterHeight="28" id="BFg-GH-8Fe">
                         <rect key="frame" x="0.0" y="0.0" width="411" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
