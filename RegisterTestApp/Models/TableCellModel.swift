@@ -8,7 +8,14 @@
 
 import UIKit
 
-class TableCellModel {
+func ==(lhs: TableCellModel, rhs: TableCellModel) -> Bool {
+	return lhs.title == rhs.title
+		&& lhs.icon == lhs.icon
+		&& lhs.keyboardType == lhs.keyboardType
+		&& lhs.isSecure == lhs.isSecure
+}
+
+class TableCellModel: Hashable, Equatable {
 	let title: String;
 	let icon: String?;
 	let keyboardType: UIKeyboardType
@@ -20,4 +27,12 @@ class TableCellModel {
 		self.keyboardType = keyboard
 		self.isSecure = secure
 	}
+	
+	var hashValue: Int {
+		get {
+			return "\(title) \(icon) \(keyboardType) \(isSecure)".hash
+		}
+	}
+	
+
 }

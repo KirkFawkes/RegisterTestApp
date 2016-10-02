@@ -5,15 +5,29 @@
 import UIKit
 
 class EditingTableViewController: UITableViewController, EditibleTableCellDelegate {
-	var cellModels = [TableCellModel]() {
+	private var cellValues = [String?]()
+	
+	var models = [TableCellModel]() {
 		didSet {
+			self.cellValues = [String?](repeating: "", count: models.count)
 			self.tableView.reloadData()
 		}
 	}
-
+	
+	var values: [String?] {
+		get {
+			return self.cellValues
+		}
+		
+		set {
+			self.cellValues = newValue
+			self.tableView.reloadData()
+		}
+	}
+	
 	// MARK: - UITableViewDataSource
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return cellModels.count
+		return models.count
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -21,8 +35,10 @@ class EditingTableViewController: UITableViewController, EditibleTableCellDelega
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "textCellId", for: indexPath) as! EditingTableViewCell
 		cell.isLast = (indexPath.row == rows - 1)
-		cell.model = cellModels[indexPath.row]
+		cell.model = self.models[indexPath.row]
+		cell.textValue = self.cellValues[indexPath.row]
 		cell.delegate = self
+		cell.indexPath = indexPath
 		
 		return cell
 	}
@@ -41,5 +57,14 @@ class EditingTableViewController: UITableViewController, EditibleTableCellDelega
 
 			tableView.selectRow(at: nextIndexPath, animated: true, scrollPosition: scroll)
 		}
+	}
+	
+	func tableViewCellChanged(cell: EditingTableViewCell) {
+		let index = cell.indexPath!.row
+		let text = cell.textValue
+		
+		self.cellValues[index] = text
+		
+		print(self.cellValues)
 	}
 }

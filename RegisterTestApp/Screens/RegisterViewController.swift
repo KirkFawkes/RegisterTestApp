@@ -54,7 +54,7 @@ class RegisterViewController: UIViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if (segue.identifier == "EditibleTableId") {
 			let controller = segue.destination as! EditingTableViewController
-			controller.cellModels = cellItems
+			controller.models = cellItems
 		}
 	}
 	
