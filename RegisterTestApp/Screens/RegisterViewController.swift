@@ -14,8 +14,8 @@ class RegisterViewController: UIViewController {
 	@IBOutlet weak var loginButton: ControlButton!
 	
 	let cellItems = [
-		TableCellModel(title: NSLocalizedString("Email", comment: "Email title"), icon: "icon-email", keyboard: .emailAddress),
-		TableCellModel(title: NSLocalizedString("Password", comment: "Password title"), icon: "icon-lock", secure: true),
+		TableCellModel(title: NSLocalizedString("Email", comment: "Email title"), icon: "icon-email", type: .email),
+		TableCellModel(title: NSLocalizedString("Password", comment: "Password title"), icon: "icon-lock", type: .password),
 	]
 	
 	// MARK - View methods
@@ -55,6 +55,7 @@ class RegisterViewController: UIViewController {
 		if (segue.identifier == "EditibleTableId") {
 			let controller = segue.destination as! EditingTableViewController
 			controller.models = cellItems
+			controller.delegate = self
 		}
 	}
 	
@@ -78,6 +79,27 @@ class RegisterViewController: UIViewController {
 		} else {
 			UIView.animate(withDuration: duration!, animations: animationBlock)
 		}
+	}
+	
+	func validateInputData(values: [String]) -> Bool {
+//		let result = zip(self.cellItems.map({ $0.type }), values)
+//
+//		for (type, value) in result {
+//		
+//		}
+		
+		return false
+	}
+}
+
+extension RegisterViewController: EditingTableViewControllerDelegate {
+	func editingTable(table: EditingTableViewController, model: TableCellModel, changedTo value: String?) {
+		let validationResult = self.validateInputData(values: table.values)
+		print("Validation result: \(validationResult)")
+	}
+	
+	func editintTableDone(table: EditingTableViewController) {
+		print("Editing finished")
 	}
 }
 

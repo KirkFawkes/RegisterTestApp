@@ -4,26 +4,35 @@
 //
 import UIKit
 
+protocol EditingTableViewControllerDelegate: class {
+	func editingTable(table: EditingTableViewController, model: TableCellModel, changedTo value: String?)
+	func editintTableDone(table: EditingTableViewController)
+}
+
 class EditingTableViewController: UITableViewController, EditibleTableCellDelegate {
-	private var cellValues = [String?]()
+	private var cellValues = [String]()
 	
 	var models = [TableCellModel]() {
 		didSet {
-			self.cellValues = [String?](repeating: "", count: models.count)
+			self.cellValues = [String](repeating: "", count: models.count)
 			self.tableView.reloadData()
 		}
 	}
 	
-	var values: [String?] {
+	var values: [String] {
 		get {
 			return self.cellValues
 		}
 		
 		set {
+			assert(newValue.count == models.count, "Values count must be equal to models count")
+			
 			self.cellValues = newValue
 			self.tableView.reloadData()
 		}
 	}
+	
+	weak var delegate: EditingTableViewControllerDelegate? = nil
 	
 	// MARK: - UITableViewDataSource
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,6 +59,7 @@ class EditingTableViewController: UITableViewController, EditibleTableCellDelega
 		
 		if (cell.isLast) {
 			tableView.deselectRow(at: indexPath, animated: true)
+			delegate?.editintTableDone(table: self)
 		} else {
 			let nextIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
 			let cellIsVisible = tableView.indexPathsForVisibleRows.map { $0.contains(nextIndexPath) } ?? false
@@ -61,10 +71,9 @@ class EditingTableViewController: UITableViewController, EditibleTableCellDelega
 	
 	func tableViewCellChanged(cell: EditingTableViewCell) {
 		let index = cell.indexPath!.row
-		let text = cell.textValue
+		let text = cell.textValue ?? ""
 		
 		self.cellValues[index] = text
-		
-		print(self.cellValues)
+		delegate?.editingTable(table: self, model: models[index], changedTo: text)
 	}
 }
