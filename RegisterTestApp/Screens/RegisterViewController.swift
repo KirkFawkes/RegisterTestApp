@@ -8,22 +8,49 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, EditingTableViewControllerDelegate {
+	weak var editingTable: EditingTableViewController? = nil
+	@IBOutlet weak var loginButton: ControlButton!
 	@IBOutlet weak var loginButtonBottomConstraint: NSLayoutConstraint!
 	
-	@IBOutlet weak var loginButton: ControlButton!
-	
-	let cellItems = [
-		TableCellModel(title: NSLocalizedString("Email", comment: "Email title"), icon: "icon-email", type: .email),
-		TableCellModel(title: NSLocalizedString("Password", comment: "Password title"), icon: "icon-lock", type: .password),
+	let cellModels = [
+		TableCellModel(title: NSLocalizedString("Email",    comment: "Email title"),    icon: "icon-email", type: .email),
+		TableCellModel(title: NSLocalizedString("Password", comment: "Password title"), icon: "icon-lock",  type: .password),
 	]
 	
+	var email: String {
+		set {
+			self.editingTable!.values[0] = newValue
+		}
+		
+		get {
+			return self.editingTable!.values[0]
+		}
+	}
+	
+	var password: String {
+		set {
+			self.editingTable!.values[1] = newValue
+		}
+		
+		get {
+			return self.editingTable!.values[1]
+		}
+	}
+	
 	// MARK - View methods
+	override func viewDidLoad() {
+//		self.email = "asdasd@dasda.com"
+//		self.password = "asdasdasdas"
+	}
+	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+		
+		self.validateAndUpdateUI()
 	}
 	
 	override func viewDidDisappear(_ animated: Bool) {
@@ -32,33 +59,46 @@ class RegisterViewController: UIViewController {
 		super.viewDidDisappear(animated)
 	}
 	
-	// MARK: - Keyboard
+	// MARK: - Keyboard events
 	func keyboardWillShow(notification: Notification) {
-		let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-		let height = keyboardFrame!.size.height
+		let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+		let height = keyboardFrame.size.height
 		
-		let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double
-		self.updateView(keyboardVisible: true, keyboardHeight: height, animationDuration: duration)
+		let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
+		updateUI(keyboardVisible: true, keyboardHeight: height, animationDuration: duration)
 	}
 	
 	func keyboardWillHide(notification: Notification) {
-		let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double
-		self.updateView(keyboardVisible: false, keyboardHeight: 0, animationDuration: duration)
+		let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
+		updateUI(keyboardVisible: false, keyboardHeight: 0, animationDuration: duration)
 	}
 	
 	// MARK: -
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if (segue.identifier == "EditibleTableId") {
+			assert(self.editingTable == nil)
+			
 			let controller = segue.destination as! EditingTableViewController
-			controller.models = cellItems
+			controller.models = cellModels
 			controller.delegate = self
 			
-			self.updateUIWithInputData(values: controller.values)
+			self.editingTable = controller
+		}
+	}
+	
+	// MARK: - EditingTableViewControllerDelegate
+	func editingTable(table: EditingTableViewController, model: TableCellModel, changedTo value: String?) {
+		validateAndUpdateUI()
+	}
+	
+	func editintTableDone(table: EditingTableViewController) {
+		if isValidInput() {
+			self.loginAction(self)
 		}
 	}
 	
 	// MARK: - Helpers
-	private func updateView(keyboardVisible: Bool, keyboardHeight: CGFloat, animationDuration duration: Double?) {
+	private func updateUI(keyboardVisible: Bool, keyboardHeight: CGFloat, animationDuration duration: Double?) {
 		let loginButtonConstraint: CGFloat = 16
 		
 		if (keyboardVisible) {
@@ -79,22 +119,17 @@ class RegisterViewController: UIViewController {
 		}
 	}
 	
-	func updateUIWithInputData(values: [String]) {
-		assert(cellItems[0].type == .email)
-		assert(cellItems[1].type == .password)
-		assert(values.count == 2)
-		
-		self.loginButton.isEnabled = values[0].isValidEmail() && values[1].isValidPassword()
-	}
-}
-
-extension RegisterViewController: EditingTableViewControllerDelegate {
-	func editingTable(table: EditingTableViewController, model: TableCellModel, changedTo value: String?) {
-		self.updateUIWithInputData(values: table.values)
+	private func isValidInput() -> Bool {
+		return self.password.isValidPassword() && self.email.isValidPassword()
 	}
 	
-	func editintTableDone(table: EditingTableViewController) {
-		print("Editing finished")
+	private func validateAndUpdateUI() {
+		self.loginButton.isEnabled = isValidInput()
+	}
+	
+	// MARK: - Actions
+	@IBAction func loginAction(_ sender: AnyObject) {
+		print("Do login")
 	}
 }
 
