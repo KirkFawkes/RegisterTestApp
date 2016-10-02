@@ -17,6 +17,7 @@
 		4A706F161D9F1847006BA99A /* ControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A706F151D9F1847006BA99A /* ControlButton.swift */; };
 		4A706F1C1DA178DD006BA99A /* EditingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A706F1A1DA178DD006BA99A /* EditingTableViewCell.swift */; };
 		4A706F1D1DA178DD006BA99A /* EditingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A706F1B1DA178DD006BA99A /* EditingTableViewController.swift */; };
+		4A706F221DA181F2006BA99A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A706F211DA181F2006BA99A /* String.swift */; };
 		4AE4E7261D9E4AF7001C6081 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323C1ED2605B11F0A05EBC81 /* RegisterViewController.swift */; };
 		4AE4E72F1D9E4FAE001C6081 /* SFUIDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4E7281D9E4DE2001C6081 /* SFUIDisplay-Regular.otf */; };
 		4AE4E7301D9E4FAE001C6081 /* SFUIDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4E7291D9E4DE2001C6081 /* SFUIDisplay-Semibold.otf */; };
@@ -42,6 +43,7 @@
 		4A706F151D9F1847006BA99A /* ControlButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlButton.swift; sourceTree = "<group>"; };
 		4A706F1A1DA178DD006BA99A /* EditingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingTableViewCell.swift; sourceTree = "<group>"; };
 		4A706F1B1DA178DD006BA99A /* EditingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingTableViewController.swift; sourceTree = "<group>"; };
+		4A706F211DA181F2006BA99A /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		4AE4E7281D9E4DE2001C6081 /* SFUIDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Regular.otf"; sourceTree = "<group>"; };
 		4AE4E7291D9E4DE2001C6081 /* SFUIDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Semibold.otf"; sourceTree = "<group>"; };
 		4AE4E72A1D9E4DE2001C6081 /* SFUIDisplay-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Thin.otf"; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			children = (
 				323C12C7698A7A2860F41206 /* UIView.swift */,
 				323C13FFE693A94EA7846DE5 /* UIColor.swift */,
+				4A706F211DA181F2006BA99A /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A706F161D9F1847006BA99A /* ControlButton.swift in Sources */,
+				4A706F221DA181F2006BA99A /* String.swift in Sources */,
 				4A706F101D9E8B10006BA99A /* TableCellModel.swift in Sources */,
 				4A3E95811D9D53A4001C8D64 /* AppDelegate.swift in Sources */,
 				4AE4E7261D9E4AF7001C6081 /* RegisterViewController.swift in Sources */,

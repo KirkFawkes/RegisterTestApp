@@ -19,10 +19,6 @@ class RegisterViewController: UIViewController {
 	]
 	
 	// MARK - View methods
-	override func viewDidLoad() {
-		super.viewDidLoad()
-	}
-
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
@@ -56,6 +52,8 @@ class RegisterViewController: UIViewController {
 			let controller = segue.destination as! EditingTableViewController
 			controller.models = cellItems
 			controller.delegate = self
+			
+			self.updateUIWithInputData(values: controller.values)
 		}
 	}
 	
@@ -81,21 +79,18 @@ class RegisterViewController: UIViewController {
 		}
 	}
 	
-	func validateInputData(values: [String]) -> Bool {
-//		let result = zip(self.cellItems.map({ $0.type }), values)
-//
-//		for (type, value) in result {
-//		
-//		}
+	func updateUIWithInputData(values: [String]) {
+		assert(cellItems[0].type == .email)
+		assert(cellItems[1].type == .password)
+		assert(values.count == 2)
 		
-		return false
+		self.loginButton.isEnabled = values[0].isValidEmail() && values[1].isValidPassword()
 	}
 }
 
 extension RegisterViewController: EditingTableViewControllerDelegate {
 	func editingTable(table: EditingTableViewController, model: TableCellModel, changedTo value: String?) {
-		let validationResult = self.validateInputData(values: table.values)
-		print("Validation result: \(validationResult)")
+		self.updateUIWithInputData(values: table.values)
 	}
 	
 	func editintTableDone(table: EditingTableViewController) {
