@@ -13,10 +13,13 @@ private enum Directories {
 }
 
 private enum Keys {
-	static let auth = "auth" as NSCopying
-	
-	static let email = "email"
+	static let auth     = "auth" as NSCopying
+	static let email    = "email"
 	static let password = "password"
+	
+	static let userInfo  = "user" as NSCopying
+	static let firstName = "firstName"
+	static let lastName  = "lastName"
 }
 
 enum ConfigError: Error {
@@ -45,13 +48,19 @@ class Config {
 	private let queue = DispatchQueue(label: "xyz.kf.registerapp.config")
 	
 	var authorizationInfo: AuthorizationInfo? = nil
+	var userInfo: UserInfo? = nil
 	
 	// MARK: -
 	private init(file name: URL) {
 		self.fname = name
 		
 		if let dict = NSDictionary(contentsOf: name) {
-			self.authorizationInfo = AuthorizationInfo.from(config: dict)
+			let auth = AuthorizationInfo.from(config: dict)
+			
+			if auth != nil {
+				self.authorizationInfo = auth
+				self.userInfo = UserInfo.from(config: dict)
+			}
 		}
 		
 		NSLog("Config loaded from %@", name.absoluteString)
@@ -61,6 +70,7 @@ class Config {
 		queue.async {
 			let dict = NSMutableDictionary()
 			self.authorizationInfo?.to(config: dict)
+			self.userInfo?.to(config: dict)
 			
 			dict.write(to: self.fname, atomically: true)
 
@@ -98,5 +108,30 @@ private extension AuthorizationInfo {
 		              Keys.password: self.password]
 		
 		config.setObject(values, forKey: Keys.auth)
+	}
+}
+
+private extension UserInfo {
+	static func from(config: NSDictionary) -> UserInfo? {
+		guard let values = config.object(forKey: Keys.userInfo) as? NSDictionary else {
+			return nil
+		}
+		
+		guard let firstName = values.object(forKey: Keys.firstName) as? String else {
+			return nil
+		}
+		
+		guard let lastName = values.object(forKey: Keys.lastName) as? String else {
+			return nil
+		}
+
+		return UserInfo(firstName: firstName, lastName: lastName)
+	}
+	
+	func to(config: NSMutableDictionary) {
+		let values = [Keys.firstName: self.firstName,
+		              Keys.lastName:  self.lastName]
+		
+		config.setObject(values, forKey: Keys.userInfo)
 	}
 }
