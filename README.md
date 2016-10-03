@@ -13,4 +13,4 @@
 
 ## Interface
 
-![preview](https://raw.githubusercontent.com/KirkFawkes/RegisterTestApp/master/Documentation/TTT.png | width=300)
+<img src="https://raw.githubusercontent.com/KirkFawkes/RegisterTestApp/master/Documentation/TTT.png " alt="Preview" width="600" />
