@@ -18,6 +18,13 @@ class UserInfoViewController: UIViewController, EditingTableViewControllerDelega
 		TableCellModel(title: NSLocalizedString("Last Name",  comment: "last name title"),  icon: "icon-name",  type: .lastName),
 	]
 	
+	var cellValueAuthInfo: AuthorizationInfo? {
+		get {
+			let values = self.tableView!.values
+			return AuthorizationInfo(email: values[0], password: values[1])
+		}
+	}
+	
 	var tableView: EditingTableViewController? = nil
 	
 	@IBOutlet var saveButton: UIBarButtonItem!
@@ -101,22 +108,49 @@ class UserInfoViewController: UIViewController, EditingTableViewControllerDelega
 		self.tableView!.values = getInitialValues()
 	}
 	
+	private func isValidInput() -> Bool {
+		guard let auth = self.cellValueAuthInfo else {
+			return false
+		}
+		
+		return auth.password.isValidPassword() && auth.email.isValidEmail()
+	}
+	
+	private func validateAndUpdateUI() {
+		self.saveButton!.isEnabled = isValidInput()
+	}
+	
 	// MARK: - EditingTableViewControllerDelegate
 	func editingTable(table: EditingTableViewController, model: TableCellModel, changedTo value: String?) {
-		print("Changed to", value)
+		self.validateAndUpdateUI()
 	}
 	
 	func editintTableDone(table: EditingTableViewController) {
-		print("Done")
 	}
 	
 	// MARK: - Actions
 	@IBAction func actEdit(_ sender: AnyObject) {
 		self.isReadOnly = false
+		self.validateAndUpdateUI()
 	}
 
 	@IBAction func actSave(_ sender: AnyObject) {
 		self.isReadOnly = true
+		self.loadingIndicator(enabled: true)
+		
+		let values = self.tableView!.values
+
+		assert(values.count == cellModels.count)
+		
+		let auth = AuthorizationInfo(email: values[0], password: values[1])
+		let userInfo = UserInfo(firstName: values[2], lastName: values[3])
+		
+		self.config!.authorizationInfo = auth
+		self.config!.userInfo = userInfo
+		
+		self.config!.save { 
+			self.loadingIndicator(enabled: false)
+		}
 	}
 	
 	@IBAction func actCancel(_ sender: AnyObject) {
@@ -127,5 +161,4 @@ class UserInfoViewController: UIViewController, EditingTableViewControllerDelega
 	@IBAction func actBack(_ sender: AnyObject) {
 		let _ = self.navigationController?.popViewController(animated: true)
 	}
-	
 }

@@ -155,6 +155,7 @@ class RegisterViewController: UIViewController, EditingTableViewControllerDelega
 		
 		let config = self.config!
 		config.authorizationInfo = AuthorizationInfo(email: email, password: password)
+		config.userInfo = nil
 		
 		self.loadingIndicator(enabled: true)
 		config.save {
