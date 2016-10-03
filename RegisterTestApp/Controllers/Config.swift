@@ -63,10 +63,11 @@ class Config {
 			self.authorizationInfo?.to(config: dict)
 			
 			dict.write(to: self.fname, atomically: true)
-			
-			DispatchQueue.main.async {
+
+			// for testing purposes callback will be called after some delay
+			DispatchQueue.main.asyncAfter(deadline: .now() + 0.75, execute: {
 				callback()
-			}
+			})
 		}
 	}
 }
