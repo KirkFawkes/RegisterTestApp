@@ -38,12 +38,15 @@ class RegisterViewController: UIViewController, EditingTableViewControllerDelega
 		}
 	}
 	
+	var config: Config? = nil
+	
 	// MARK - View methods
 	override func viewDidLoad() {
 		self.loadingIndicator(enabled: true)
 		
 		Config.load { config in
 			self.loadingIndicator(enabled: false)
+			self.config = config
 			
 			if let info = config.authorizationInfo {
 				self.email = info.email
@@ -138,7 +141,20 @@ class RegisterViewController: UIViewController, EditingTableViewControllerDelega
 	
 	// MARK: - Actions
 	@IBAction func loginAction(_ sender: AnyObject) {
-		print("Do login")
+		let email = self.email
+		let paaword = self.password
+		
+		assert(email.characters.count > 0)
+		assert(paaword.characters.count > 0)
+		
+		let config = self.config!
+		config.authorizationInfo = AuthorizationInfo(email: email, password: password)
+		
+		self.loadingIndicator(enabled: true)
+		config.save {
+			self.loadingIndicator(enabled: false)
+			
+			NSLog("User credentials saved")
+		}
 	}
 }
-

@@ -9,13 +9,12 @@
 import UIKit
 
 private let indicatorTag: Int = 1255483
-private let showDelay: TimeInterval = 0.125
 private let animationDuration: TimeInterval = 0.25
 
 extension UIViewController {
 	
 	// add simple loading indicator
-	func loadingIndicator(enabled: Bool) {
+	func loadingIndicator(enabled: Bool, showDelay: TimeInterval = 0.125) {
 		if enabled {
 			self.perform(#selector(showLoadingIndicator), with: nil, afterDelay: showDelay)
 		} else {
