@@ -132,7 +132,7 @@ class RegisterViewController: UIViewController, EditingTableViewControllerDelega
 	}
 	
 	private func isValidInput() -> Bool {
-		return self.password.isValidPassword() && self.email.isValidPassword()
+		return self.password.isValidPassword() && self.email.isValidEmail()
 	}
 	
 	private func validateAndUpdateUI() {
