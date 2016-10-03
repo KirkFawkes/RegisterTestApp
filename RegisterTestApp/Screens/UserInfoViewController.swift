@@ -18,8 +18,6 @@ class UserInfoViewController: UIViewController, EditingTableViewControllerDelega
 		TableCellModel(title: NSLocalizedString("Last Name",  comment: "last name title"),  icon: "icon-name",  type: .lastName),
 	]
 	
-	var initialValues: [String] = []
-	
 	var tableView: EditingTableViewController? = nil
 	
 	@IBOutlet var saveButton: UIBarButtonItem!
@@ -43,19 +41,11 @@ class UserInfoViewController: UIViewController, EditingTableViewControllerDelega
 		super.viewDidLoad()
 		
 		assert(self.config != nil)
-		assert(self.tableView != nil)
-		
-		let authInfo = config!.authorizationInfo
-		
-		self.initialValues = [
-			authInfo?.email ?? "",
-			authInfo?.password ?? "",
-			"",
-			""
-		]
 		
 		self.navigationItem.backBarButtonItem = UIBarButtonItem(image: nil, style: .plain, target: nil, action: nil)
 		self.isReadOnly = true
+		
+		self.reloadData()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -94,6 +84,23 @@ class UserInfoViewController: UIViewController, EditingTableViewControllerDelega
 		}
 	}
 	
+	func getInitialValues() -> [String] {
+		let authInfo = self.config!.authorizationInfo
+		let userInfo = self.config!.userInfo
+		
+		return [
+			authInfo?.email ?? "",
+			authInfo?.password ?? "",
+			
+			userInfo?.firstName ?? "",
+			userInfo?.lastName ?? ""
+		]
+	}
+	
+	func reloadData() {
+		self.tableView!.values = getInitialValues()
+	}
+	
 	// MARK: - EditingTableViewControllerDelegate
 	func editingTable(table: EditingTableViewController, model: TableCellModel, changedTo value: String?) {
 		print("Changed to", value)
@@ -114,6 +121,7 @@ class UserInfoViewController: UIViewController, EditingTableViewControllerDelega
 	
 	@IBAction func actCancel(_ sender: AnyObject) {
 		self.isReadOnly = true
+		self.reloadData()
 	}
 	
 	@IBAction func actBack(_ sender: AnyObject) {
