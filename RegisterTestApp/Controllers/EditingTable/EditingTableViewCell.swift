@@ -9,7 +9,6 @@
 import UIKit
 
 private enum Border {
-	static let name = "cell_border"
 	static let size: CGFloat = 1.0
 	static let color = UIColor(hex: 0xD8D8D8)
 }
@@ -87,12 +86,12 @@ class EditingTableViewCell: UITableViewCell, UITextFieldDelegate {
 	
 	// MARK: - Helpers
 	private func updateBorders() {
-		self.removeBorders(name: Border.name)
+		self.removeBorders()
 		
-		self.addBorderTop(size: Border.size, color: Border.color, name: Border.name)
+		self.addBorderTop(size: Border.size, color: Border.color)
 		
 		if (_isLast) {
-			self.addBorderBottom(size: Border.size, color: Border.color, name: Border.name)
+			self.addBorderBottom(size: Border.size, color: Border.color)
 		}
 	}
 	
