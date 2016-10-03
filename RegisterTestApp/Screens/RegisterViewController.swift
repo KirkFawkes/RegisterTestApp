@@ -65,6 +65,13 @@ class RegisterViewController: UIViewController, EditingTableViewControllerDelega
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
 		
 		self.validateAndUpdateUI()
+		
+		if let config = self.config {
+			let auth = config.authorizationInfo
+			self.email = auth?.email ?? ""
+			self.password = auth?.password  ?? ""
+			self.validateAndUpdateUI()
+		}
 	}
 	
 	override func viewDidDisappear(_ animated: Bool) {

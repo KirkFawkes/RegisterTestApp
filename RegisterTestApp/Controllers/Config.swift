@@ -66,6 +66,11 @@ class Config {
 		NSLog("Config loaded from %@", name.absoluteString)
 	}
 	
+	func clear() {
+		self.authorizationInfo = nil
+		self.userInfo = nil
+	}
+	
 	func save(callback: @escaping () -> Void) {
 		queue.async {
 			let dict = NSMutableDictionary()

@@ -159,6 +159,13 @@ class UserInfoViewController: UIViewController, EditingTableViewControllerDelega
 	}
 	
 	@IBAction func actBack(_ sender: AnyObject) {
-		let _ = self.navigationController?.popViewController(animated: true)
+		self.loadingIndicator(enabled: true)
+		
+		self.config!.clear()
+		self.config?.save(callback: { 
+			self.loadingIndicator(enabled: true)
+			
+			let _ = self.navigationController?.popViewController(animated: true)
+		})
 	}
 }
