@@ -10,6 +10,7 @@ import UIKit
 
 private let indicatorTag: Int = 1255483
 private let showDelay: TimeInterval = 0.125
+private let animationDuration: TimeInterval = 0.25
 
 extension UIViewController {
 	
@@ -45,7 +46,7 @@ extension UIViewController {
 		view.addSubview(indicator)
 		self.view.addSubview(view)
 		
-		UIView.animate(withDuration: 0.25) {
+		UIView.animate(withDuration: animationDuration) {
 			view.alpha = 0.5
 		}
 	}
@@ -55,7 +56,7 @@ extension UIViewController {
 			return
 		}
 		
-		UIView.animate(withDuration: 0.25, animations: {
+		UIView.animate(withDuration: animationDuration, animations: {
 			indicatorView.alpha = 0.0
 		}, completion: { _ in
 			indicatorView.removeFromSuperview()
