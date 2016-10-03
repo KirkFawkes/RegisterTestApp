@@ -40,8 +40,17 @@ class RegisterViewController: UIViewController, EditingTableViewControllerDelega
 	
 	// MARK - View methods
 	override func viewDidLoad() {
-//		self.email = "asdasd@dasda.com"
-//		self.password = "asdasdasdas"
+		self.loadingIndicator(enabled: true)
+		
+		Config.load { config in
+			self.loadingIndicator(enabled: false)
+			
+			if let info = config.authorizationInfo {
+				self.email = info.email
+				self.password = info.password
+				self.validateAndUpdateUI()
+			}
+		}
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
