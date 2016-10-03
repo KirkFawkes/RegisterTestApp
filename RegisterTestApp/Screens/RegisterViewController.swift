@@ -53,7 +53,8 @@ class RegisterViewController: UIViewController, EditingTableViewControllerDelega
 			if let info = config.authorizationInfo {
 				self.email = info.email
 				self.password = info.password
-				self.validateAndUpdateUI()
+
+				self.switchToUserInfoController()
 			}
 		}
 	}
@@ -105,7 +106,7 @@ class RegisterViewController: UIViewController, EditingTableViewControllerDelega
 			
 			self.editingTable = controller
 			
-		} else if segue.identifier == "userInfoSegueId" {
+		} else if segue.identifier == "userInfoSegueId" || segue.identifier == "initialUserInfoSegueId" {
 			let controller = segue.destination as! UserInfoViewController
 			controller.config = self.config
 		}
@@ -150,6 +151,11 @@ class RegisterViewController: UIViewController, EditingTableViewControllerDelega
 	
 	private func validateAndUpdateUI() {
 		self.loginButton.isEnabled = isValidInput()
+	}
+	
+	private func switchToUserInfoController() {
+		// TODO: implement custom animation
+		self.performSegue(withIdentifier: "userInfoSegueId", sender: self)
 	}
 	
 	// MARK: - Actions
