@@ -32,6 +32,12 @@ class EditingTableViewController: UITableViewController, EditibleTableCellDelega
 		}
 	}
 	
+	var isReadonly: Bool = false {
+		didSet {
+			self.tableView.reloadData()
+		}
+	}
+	
 	weak var delegate: EditingTableViewControllerDelegate? = nil
 	
 	// MARK: - UITableViewDataSource
@@ -48,7 +54,7 @@ class EditingTableViewController: UITableViewController, EditibleTableCellDelega
 		cell.textValue = self.cellValues[indexPath.row]
 		cell.delegate = self
 		cell.indexPath = indexPath
-		
+		cell.isReadOnly = self.isReadonly
 		return cell
 	}
 	

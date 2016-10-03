@@ -13,9 +13,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
-
+	func printFonts() {
+		UIFont.familyNames.forEach { fontFamily in
+			print("Font family: \(fontFamily)")
+			
+			let fontNames = UIFont.fontNames(forFamilyName: fontFamily)
+			print("   names: \(fontNames)")
+		}
+	}
+	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
+//		printFonts()
+		
+		let font = UIFont(name: "SFUIText-Light", size: 14)
+	
+		let navBarAppearace = UINavigationBar.appearance()
+		navBarAppearace.tintColor = UIColor.white
+		navBarAppearace.barTintColor = UIColor(hex: 0x0AB8B4)
+		navBarAppearace.isTranslucent = false
+		navBarAppearace.titleTextAttributes = [
+			NSForegroundColorAttributeName: UIColor.white,
+			NSFontAttributeName: font!
+		]
+		
+		let backButtonImage = UIImage(named: "back-button")?.withRenderingMode(.alwaysOriginal)
+		UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
+		
 		return true
 	}
 

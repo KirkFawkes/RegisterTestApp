@@ -21,6 +21,8 @@
 		4A706F241DA1AB71006BA99A /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A706F231DA1AB71006BA99A /* Config.swift */; };
 		4A706F261DA1AC20006BA99A /* AuthorizationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A706F251DA1AC20006BA99A /* AuthorizationInfo.swift */; };
 		4A706F281DA1CC4D006BA99A /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A706F271DA1CC4D006BA99A /* UIViewController.swift */; };
+		4A706F2A1DA1DE61006BA99A /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A706F291DA1DE61006BA99A /* UserInfoViewController.swift */; };
+		4A706F2C1DA25727006BA99A /* Userinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A706F2B1DA25727006BA99A /* Userinfo.swift */; };
 		4AE4E7261D9E4AF7001C6081 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323C1ED2605B11F0A05EBC81 /* RegisterViewController.swift */; };
 		4AE4E72F1D9E4FAE001C6081 /* SFUIDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4E7281D9E4DE2001C6081 /* SFUIDisplay-Regular.otf */; };
 		4AE4E7301D9E4FAE001C6081 /* SFUIDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4E7291D9E4DE2001C6081 /* SFUIDisplay-Semibold.otf */; };
@@ -50,6 +52,8 @@
 		4A706F231DA1AB71006BA99A /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		4A706F251DA1AC20006BA99A /* AuthorizationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationInfo.swift; sourceTree = "<group>"; };
 		4A706F271DA1CC4D006BA99A /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		4A706F291DA1DE61006BA99A /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		4A706F2B1DA25727006BA99A /* Userinfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Userinfo.swift; sourceTree = "<group>"; };
 		4AE4E7281D9E4DE2001C6081 /* SFUIDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Regular.otf"; sourceTree = "<group>"; };
 		4AE4E7291D9E4DE2001C6081 /* SFUIDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Semibold.otf"; sourceTree = "<group>"; };
 		4AE4E72A1D9E4DE2001C6081 /* SFUIDisplay-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Thin.otf"; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				323C1ED2605B11F0A05EBC81 /* RegisterViewController.swift */,
+				4A706F291DA1DE61006BA99A /* UserInfoViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 			children = (
 				4A706F0F1D9E8B10006BA99A /* TableCellModel.swift */,
 				4A706F251DA1AC20006BA99A /* AuthorizationInfo.swift */,
+				4A706F2B1DA25727006BA99A /* Userinfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -252,6 +258,8 @@
 				4A706F101D9E8B10006BA99A /* TableCellModel.swift in Sources */,
 				4A706F261DA1AC20006BA99A /* AuthorizationInfo.swift in Sources */,
 				4A3E95811D9D53A4001C8D64 /* AppDelegate.swift in Sources */,
+				4A706F2C1DA25727006BA99A /* Userinfo.swift in Sources */,
+				4A706F2A1DA1DE61006BA99A /* UserInfoViewController.swift in Sources */,
 				4A706F241DA1AB71006BA99A /* Config.swift in Sources */,
 				4AE4E7261D9E4AF7001C6081 /* RegisterViewController.swift in Sources */,
 				4A706F1D1DA178DD006BA99A /* EditingTableViewController.swift in Sources */,

@@ -64,10 +64,14 @@ class Config {
 			
 			dict.write(to: self.fname, atomically: true)
 
-			// for testing purposes callback will be called after some delay
-			DispatchQueue.main.asyncAfter(deadline: .now() + 0.75, execute: {
+//			// for testing purposes callback will be called after some delay
+//			DispatchQueue.main.asyncAfter(deadline: .now() + 0.75, execute: {
+//				callback()
+//			})
+			
+			DispatchQueue.main.async {
 				callback()
-			})
+			}
 		}
 	}
 }

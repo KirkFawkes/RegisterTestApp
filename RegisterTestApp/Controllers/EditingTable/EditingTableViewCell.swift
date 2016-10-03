@@ -76,6 +76,15 @@ class EditingTableViewCell: UITableViewCell, UITextFieldDelegate {
 		}
 	}
 	
+	var isReadOnly: Bool = false {
+		didSet {
+			let textColor = isReadOnly ? self.titleLabel.textColor : UIColor.black
+			
+			self.textField.isEnabled = !isReadOnly
+			self.textField.textColor = textColor
+		}
+	}
+	
 	// MARK: - Helpers
 	private func updateBorders() {
 		self.removeBorders(name: Border.name)

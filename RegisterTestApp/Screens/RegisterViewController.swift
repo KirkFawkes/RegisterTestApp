@@ -42,6 +42,8 @@ class RegisterViewController: UIViewController, EditingTableViewControllerDelega
 	
 	// MARK - View methods
 	override func viewDidLoad() {
+		super.viewDidLoad()
+		
 		self.loadingIndicator(enabled: true)
 		
 		Config.load { config in
@@ -95,6 +97,10 @@ class RegisterViewController: UIViewController, EditingTableViewControllerDelega
 			controller.delegate = self
 			
 			self.editingTable = controller
+			
+		} else if segue.identifier == "userInfoSegueId" {
+			let controller = segue.destination as! UserInfoViewController
+			controller.config = self.config
 		}
 	}
 	
@@ -155,6 +161,8 @@ class RegisterViewController: UIViewController, EditingTableViewControllerDelega
 			self.loadingIndicator(enabled: false)
 			
 			NSLog("User credentials saved")
+			
+			self.performSegue(withIdentifier: "userInfoSegueId", sender: self)
 		}
 	}
 }
